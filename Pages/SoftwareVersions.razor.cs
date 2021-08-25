@@ -7,13 +7,13 @@ using Microsoft.AspNetCore.Components;
 
 namespace NonaESCodeChallage.Pages
 {
-    public partial class SoftwareVersions
+    public partial class SoftwareVersions : ComponentBase
     {
         public event Action OnChange;
 
         private void NotifyStateChanged() => OnChange?.Invoke();
 
-        [Inject] private NonaESCodeChallage.Data.SoftwareVesionService SoftwareService { get; set; }
+        [Inject] protected NonaESCodeChallage.Data.SoftwareVesionService SoftwareService { get; set; }
 
         private string ErrorMessages;
 
