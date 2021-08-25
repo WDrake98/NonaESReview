@@ -1,0 +1,29 @@
+﻿@page "/software"
+
+<h3>Software Vesions for the Emergent Application</h3>
+
+<div>
+    <label>Please enter a value of software to search</label>
+    <input @bind="SoftwareVersionToSearch" isRequred />
+    <button @onclick="SearchSoftware">Search Software</button>
+    <button @onclick="ResetList">Show All</button>
+</div>
+<div>
+    <label class="error">@ErrorMessages</label>
+</div>
+<hr />
+@SearchLabel
+
+<ul>
+    @if (EnhancedSoftware != null)
+    {
+        @foreach (var swversion in EnhancedSoftware)
+        {
+            <li>
+                <label>@swversion.Name</label> - <label>@swversion.Version</label> -
+                <label>@swversion.SoftwareVersion.ToString()</label>
+            </li>
+        }
+    }
+
+</ul>
